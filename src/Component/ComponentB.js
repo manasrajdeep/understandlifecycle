@@ -34,7 +34,7 @@ class ComponentB extends React.Component {
     
     render(){
          console.log("ComponentB render")
-        //  console.log(this.state.data)
+         console.log(this.state.data)
          
         return(<>
             <h2> {this.state.name}</h2>
