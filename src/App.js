@@ -8,7 +8,8 @@ class App extends React.Component {
   constructor(){
     super();
     this.state={
-      mount:true
+      mount:true,
+      timerOn:false
     }
   }
 
@@ -17,10 +18,15 @@ class App extends React.Component {
 
   }
 
+  handleToTimer=()=>{
+    this.setState((prevState)=>({timerOn:!prevState.timerOn}))
+  }
+
   render(){
   return (<>
   <button onClick={this.handleToUnmount}>Mount</button>
-    {this.state.mount?<Timer/>:null}
+    {this.state.mount?<Timer timerOn={this.state.timerOn}  />:null}
+    <button onClick={this.handleToTimer}>{this.state.timerOn?"Start":"Stop"}</button>
   
   </>
     

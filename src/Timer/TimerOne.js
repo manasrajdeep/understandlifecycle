@@ -34,10 +34,6 @@ class Timer extends React.Component{
 
     // }
 
-    StartOrStop=()=>{
-        
-    }
-
      render(){
         return(<>
             <h2>{this.state.name}</h2>
@@ -45,7 +41,6 @@ class Timer extends React.Component{
             <button onClick={this.handleOnClick}> click </button> */}
 
             <h3> Time Spent: {new Date(this.state.time*1000).toISOString().slice(11,19)}</h3>
-            <h3><button onClick={this.StartOrStop}>Start/Stop</button></h3>
             
             </>
         );
@@ -57,10 +52,10 @@ class Timer extends React.Component{
     componentDidMount(){
         console.log("TimerOne componentDidMount")
 
-        this.timer=setInterval(()=>{this.setState((prevState)=>({
-            time:prevState.time+1}))
-        },1000
-    );
+    //     this.timer=setInterval(()=>{this.setState((prevState)=>({
+    //         time:prevState.time+1}))
+    //     },1000
+    // );
 
     }
 
@@ -71,11 +66,18 @@ class Timer extends React.Component{
         return null;
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps,prevState,snapShot){
         console.log("TimerOne componentDidUpdate")
-        if(this.state.time===10){
+        if(this.state.time===50){
             clearInterval(this.timer)
         }
+        console.log("prevProps  :",prevProps)
+        console.log("prevState  :",prevState)
+        console.log("snapShot  :",snapShot)
+    //     this.timer=setInterval(()=>{this.setState((prevState)=>({
+    //         time:prevState.time+1}))
+    //     },1000
+    // );
     }
 
     componentWillUnmount(){
