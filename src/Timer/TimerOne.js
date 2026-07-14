@@ -23,7 +23,9 @@ class Timer extends React.Component{
     }
 
      shouldComponentUpdate(nextProps,nextState){
-        return true;
+        console.log("shouldComponentUpdate nectProps: ",nextProps);
+        console.log("shouldComponentUpdate nextState: ",nextState);
+        return nextProps.timerOn !==this.props.timerOn || nextState.time % 5===0;
     }
 
     // handleOnClick=()=>{
