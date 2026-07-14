@@ -74,10 +74,19 @@ class Timer extends React.Component{
         console.log("prevProps  :",prevProps)
         console.log("prevState  :",prevState)
         console.log("snapShot  :",snapShot)
-    //     this.timer=setInterval(()=>{this.setState((prevState)=>({
-    //         time:prevState.time+1}))
-    //     },1000
-    // );
+        if(prevProps.timerOn !==this.props.timerOn){
+            if(this.props.timerOn){
+                    this.timer=setInterval(()=>{this.setState((prevState)=>({
+                           time:prevState.time+1}))
+                                },1000
+                                    );
+            }
+
+            else{
+                clearInterval(this.timer);
+            }
+        }
+    
     }
 
     componentWillUnmount(){

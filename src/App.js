@@ -26,7 +26,7 @@ class App extends React.Component {
   return (<>
   <button onClick={this.handleToUnmount}>Mount</button>
     {this.state.mount?<Timer timerOn={this.state.timerOn}  />:null}
-    <button onClick={this.handleToTimer}>{this.state.timerOn?"Start":"Stop"}</button>
+    <button onClick={this.handleToTimer}>{this.state.timerOn?"Stop":"Start"}</button>
   
   </>
     
